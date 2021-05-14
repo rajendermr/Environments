@@ -21,7 +21,8 @@ jobs:
       run: |
         TEST_SEC=${{ secrets.SEC_NAME }}
         echo "TEST_SEC_NAME=${TEST_SEC}" >> $GITHUB_ENV
-        echo "${{ secrets.TEST_SEC_NAME }}"
+        echo "${{ secrets.TEST_SEC }}"
+        echo $TEST_SEC_NAME
       
     - run: echo "It is Dev ${{ env.CONCAT_TEST }}"
       name: Setup dev env
