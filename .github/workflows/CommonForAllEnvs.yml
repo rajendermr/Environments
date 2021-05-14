@@ -10,7 +10,7 @@ on:
       
 env:
       DEPLOY_ENV: 'sbx'
-      CONCAT_TEST: Raj${ github.event.inputs.secname }
+      CONCAT_TEST: Raj${{ github.event.inputs.secname }}
 jobs: 
 
   SetupInfra: 
