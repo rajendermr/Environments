@@ -19,7 +19,7 @@ jobs:
     steps: 
     - name: Set the env variables according to env
       run: |
-        TEST_SEC= ${{ secrets.SEC_NAME }}
+        TEST_SEC=${{ secrets.SEC_NAME }}
         echo "TEST_SEC_NAME=${TEST_SEC}" >> $GITHUB_ENV
         echo "${{ secrets.TEST_SEC_NAME }}"
       
