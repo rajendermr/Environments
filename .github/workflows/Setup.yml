@@ -20,8 +20,8 @@ jobs:
       - 
         name: "Run a multi-line script"
         if: github.event.inputs.env_type == 'dev'
-        run: "It's Dev"
+        run: "It is Dev"
       - 
         name: "Run a multi-line script"
         if: github.event.inputs.env_type != 'dev'
-        run: "It's not Dev."
+        run: "It is not Dev. It is ${{ github.event.inputs.env_type }}"
