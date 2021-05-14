@@ -11,7 +11,7 @@ env:
       DEPLOY_ENV: 'sbx'
 jobs: 
 
-  dev: 
+  Setup: 
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.env_type }}
     steps: 
