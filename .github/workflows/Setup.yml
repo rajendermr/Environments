@@ -24,4 +24,4 @@ jobs:
       - 
         name: "Run a multi-line script"
         if: github.event.inputs.env_type != 'dev'
-        run: "It's not Dev. It is ${{ github.event.inputs.env_type }}"
+        run: "It's not Dev."
