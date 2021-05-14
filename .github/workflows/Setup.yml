@@ -17,11 +17,3 @@ jobs:
       - 
         name: "Run a one-line script"
         run: "echo Hello, world! ${{ env.DEPLOY_ENV }}"
-      - 
-        name: "Run a multi-line script"
-        if: github.event.inputs.env_type == 'dev'
-        run: "echo It is Dev"
-      - 
-        name: "Run a multi-line script"
-        if: github.event.inputs.env_type != 'dev'
-        run: "echo It is not Dev. It is ${{ github.event.inputs.env_type }}"
