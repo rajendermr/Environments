@@ -26,7 +26,7 @@ jobs:
         
     - run: echo "It is Devsec1"
       name: Check dev sec1
-      if: $TEST_SEC_NAME == 'devsec'
+      if: ${{ env.TEST_SEC_NAME }}== 'devsec'
 
       
     - run: echo "It is Dev ${{ env.CONCAT_TEST }}"
