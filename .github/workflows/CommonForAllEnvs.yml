@@ -10,13 +10,14 @@ on:
       
 env:
       DEPLOY_ENV: 'sbx'
+      CONCAT_TEST: Raj${ github.event.inputs.secname }
 jobs: 
 
   SetupInfra: 
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.env_type }}
     steps: 
-    - run: echo "It is Dev"
+    - run: echo "It is Dev ${{ env.CONCAT_TEST }}"
       name: Setup dev env
       if: github.event.inputs.env_type == 'dev'
 
