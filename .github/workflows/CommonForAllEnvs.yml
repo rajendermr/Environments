@@ -27,14 +27,7 @@ jobs:
     - run: echo "It is Devsec1"
       name: Check dev sec1
       if: $TEST_SEC_NAME == 'devsec'
-      
-    - run: echo "It is Devsec2"
-      name: Check dev sec2
-      if: ${{ secrets.TEST_SEC }} == 'devsec'
-      
-    - run: echo "It is Devsec3"
-      name: Check dev sec3
-      if: ${{ secrets.SEC_NAME }} == 'devsec'
+
       
     - run: echo "It is Dev ${{ env.CONCAT_TEST }}"
       name: Setup dev env
