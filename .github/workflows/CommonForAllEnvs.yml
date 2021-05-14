@@ -1,0 +1,28 @@
+name: "Setup Infrastructure "
+
+on:
+  workflow_dispatch:
+    inputs: 
+      env_type: 
+        default: dev
+        description: "Please, choose one of the options for environment [dev, test, production]"
+      
+env:
+      DEPLOY_ENV: 'sbx'
+jobs: 
+
+  dev: 
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.env_type }}
+    steps: 
+    - run: echo "It is Dev"
+      name: Set name1
+      if: github.event.inputs.env_type == 'dev'
+
+    - run: echo "It is test"
+      name: Set name2
+      if: github.event.inputs.env_type == 'test'
+      
+    - run: echo "It is prod"
+      name: Set name3
+      if: github.event.inputs.env_type == 'prod'
