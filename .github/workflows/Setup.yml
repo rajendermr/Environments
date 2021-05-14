@@ -14,10 +14,10 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     steps: 
-    - run: echo "It is Dev ${{ env.SEC_NAME}}"
+    - run: echo "It is Dev ${{ secrets.SEC_NAME}}"
       name: Set name1
       if: github.event.inputs.env_type == 'dev'
       
-    - run: echo "It is test ${{ env.SEC_NAME}}"
+    - run: echo "It is test ${{ secrets.SEC_NAME}}"
       name: Set name2
       if: github.event.inputs.env_type == 'test'
