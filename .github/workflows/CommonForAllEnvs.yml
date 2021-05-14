@@ -6,23 +6,40 @@ on:
       env_type: 
         default: dev
         description: "Please, choose one of the options for environment [dev, test, production]"
+      secname:
       
 env:
       DEPLOY_ENV: 'sbx'
 jobs: 
 
-  Setup: 
+  SetupInfra: 
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.env_type }}
     steps: 
     - run: echo "It is Dev"
-      name: Set name1
+      name: Setup dev env
       if: github.event.inputs.env_type == 'dev'
 
     - run: echo "It is test"
-      name: Set name2
+      name: Setup test env
       if: github.event.inputs.env_type == 'test'
       
     - run: echo "It is prod"
-      name: Set name3
+      name: Set prod env
       if: github.event.inputs.env_type == 'prod'
+
+    - run: echo "It is secdev"
+      name: secdev
+      if: github.event.inputs.secname == 'secdev'
+    
+    - run: echo "It is sectest"
+      name: sectest
+      if: github.event.inputs.secname == 'sectest'
+    
+    - run: echo "It is secprod"
+      name: secprod
+      if: github.event.inputs.secname == 'secprod'
+      
+    - run: echo "It is secrepo"
+      name: secrepo
+      if: github.event.inputs.secname == 'secrepo'
