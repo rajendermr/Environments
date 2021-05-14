@@ -11,13 +11,27 @@ on:
 env:
       DEPLOY_ENV: 'sbx'
 jobs: 
-  build: 
+
+  dev: 
     runs-on: ubuntu-latest
+    environment: dev
     steps: 
-    - run: echo "It is Dev ${{ secrets.SEC_NAME}}"
+    - run: echo "It is Dev"
       name: Set name1
       if: github.event.inputs.env_type == 'dev'
-      
-    - run: echo "It is test ${{ secrets.SEC_NAME}}"
+
+  test: 
+    runs-on: ubuntu-latest
+    environment: dev
+    steps: 
+    - run: echo "It is test"
       name: Set name2
       if: github.event.inputs.env_type == 'test'
+      
+  prod: 
+    runs-on: ubuntu-latest
+    environment: prod
+    steps: 
+    - run: echo "It is prod"
+      name: Set name3
+      if: github.event.inputs.env_type == 'prod'
