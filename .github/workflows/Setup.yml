@@ -22,7 +22,7 @@ jobs:
 
   test: 
     runs-on: ubuntu-latest
-    environment: dev
+    environment: test
     steps: 
     - run: echo "It is test"
       name: Set name2
