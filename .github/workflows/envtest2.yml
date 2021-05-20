@@ -1,0 +1,36 @@
+name: "Test ENV"
+
+on:
+  workflow_dispatch:
+    inputs: 
+      env_type: 
+        default: dev
+        description: "Please, choose one of the options for environment [dev, test, production]"
+      
+env:
+      TESTENV: 'sbx'
+jobs: 
+
+  dev: 
+    runs-on: ubuntu-latest
+    environment: dev
+    steps: 
+    - run: echo "It is Dev ${{ env.TESTENV }}"
+      name: Set name1
+      if: github.event.inputs.env_type == 'dev'
+
+  test: 
+    runs-on: ubuntu-latest
+    environment: test
+    steps: 
+    - run: echo "It is test ${{ env.TESTENV }}"
+      name: Set name2
+      if: github.event.inputs.env_type == 'test'
+      
+  prod: 
+    runs-on: ubuntu-latest
+    environment: prod
+    steps: 
+    - run: echo "It is prod ${{ env.TESTENV }}"
+      name: Set name3
+      if: github.event.inputs.env_type == 'prod'
