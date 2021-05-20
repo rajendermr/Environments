@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - 
-        name: "First Step"
-        run: "First Hello, world! ${{ env.VARTEST}}"
-    steps: 
-      - 
         name: "Run a one-line script"
         env:
           VARTEST: 'val2'
