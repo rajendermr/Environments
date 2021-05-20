@@ -21,6 +21,10 @@ jobs:
       name: Set name1
       if: github.event.inputs.env_type == 'dev'
 
+    - run: echo "It is val0 ${{ env.TESTENV }} ${{ secrets.TESTENV }}"
+      name: Val is val0
+      if: github.event.inputs.env_type == 'dev' && ${{ secrets.TESTENV }} == 'val0'
+      
   test: 
     runs-on: ubuntu-latest
     environment: test
