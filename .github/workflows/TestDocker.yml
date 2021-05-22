@@ -24,7 +24,7 @@ jobs:
     - name: 'SETUP - Checkout code'
       uses: 'actions/checkout@v2'
       with:
-          ref: master
+          ref: main
           fetch-depth: 2'
     - run: ls
         
