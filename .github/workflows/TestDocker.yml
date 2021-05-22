@@ -1,0 +1,30 @@
+name: "Test Docker"
+
+on:
+  workflow_dispatch:
+    inputs: 
+      env_type: 
+        default: dev
+        description: "Please, choose one of the options for environment [dev, test, production]"
+   
+env:
+      TESTENV: 'sbx'
+jobs: 
+
+  dev: 
+    runs-on: ubuntu-latest
+    environment: dev
+    env:
+      TESTENV: val1
+    steps: 
+    - run: echo "It is Dev ${{ env.TESTENV }} ${{ secrets.TESTENV }}"
+      name: Set name1
+      if: github.event.inputs.env_type == 'dev'
+      
+    - name: 'SETUP - Checkout code'
+        uses: 'actions/checkout@v2'
+        with:
+          ref: master
+          fetch-depth: 2'
+    - run:| ls
+        
